@@ -1,19 +1,13 @@
-# import pandas as pd 
-# import matplotlib.pyplot as plt
-# import settings
+import matplotlib.pyplot as plot
+from apps.cities import tools
 
-def readData(path):
-    return pd.read_csv(path, low_memory=False, header=None) 
+data = tools.readData()
 
-if __name__ == "__main__":
-    data = readData(settings.path)
+sortedData = tools.sortData(data)
 
-    df = pd.DataFrame(data) 
+if __name__ == '__main__':
 
-    df.sort_values(15, axis = 0, ascending = False, 
-                    inplace = True, na_position ='last')
-    print(df.head(50))
+    print(sortedData.head(50))
 
-    graphData = df.head(25)
-    graphData.plot(x = 2 , y = 15 , kind = 'bar')
+    barData = tools.createGraph(sortedData)
 

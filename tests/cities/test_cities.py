@@ -1,11 +1,14 @@
-from run import readData
-# import settings
-
-# data = readData(settings.path)
-# print (len(data))
+from apps.cities import tools
 
 def testDataFirstLine():
-    assert (data.head(1)[3][0]) == "OZAN"
+    data = tools.readData()
+    assert (data.iloc[0][3]) == "OZAN"
 
 def testDataLength():
+    data = tools.readData()
     assert len(data) == 36700
+
+def testSorting():
+    data = tools.readData()
+    sortedData = tools.sortData(data)
+    assert (sortedData.iloc[0][3]) == "PARIS"
