@@ -13,7 +13,7 @@ if __name__ == '__main__':
     bar_data = cities.create_graph(sorted_cities)
 
     highschools_data = highschools.read_highschools_csv_data(settings.highschools_csv_path)
-    filtered_highschools = highschools.filter_highschools(highschools_data)
-    reduced_highschools = highschools.reduce_highschools(filtered_highschools)
+    extracted_highschools = highschools.extract_highschools_columns(highschools_data)
+    reduced_highschools = highschools.reduce_highschools(extracted_highschools)
 
     print(reduced_highschools)
