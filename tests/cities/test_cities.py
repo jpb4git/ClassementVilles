@@ -1,14 +1,16 @@
-from apps.cities import tools
+from apps.cities import cities
+import settings
 
 def testDataFirstLine():
-    data = tools.readData()
+    data = cities.read_cities_csv_data(settings.cities_csv_path)
     assert (data.iloc[0][3]) == "OZAN"
 
 def testDataLength():
-    data = tools.readData()
+    data = cities.read_cities_csv_data(settings.cities_csv_path)
     assert len(data) == 36700
 
 def testSorting():
-    data = tools.readData()
-    sortedData = tools.sortData(data)
-    assert (sortedData.iloc[0][3]) == "PARIS"
+    data = cities.read_cities_csv_data(settings.cities_csv_path)
+    sorted_cities = cities.sort_cities_by_population(data)
+    assert (sorted_cities.iloc[0][3]) == "PARIS"
+
