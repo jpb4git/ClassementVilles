@@ -9,3 +9,6 @@ def extract_highschools_columns(highschools):
     
 def average_by_insee(highschools):
     return highschools.groupby(['Code commune']).mean()
+
+def get_average(highschools):
+    return average_by_insee(extract_highschools_columns(highschools))
